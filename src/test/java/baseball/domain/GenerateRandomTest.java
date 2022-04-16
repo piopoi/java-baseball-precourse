@@ -10,7 +10,7 @@ class GenerateRandomTest {
     @Test
     void 랜덤_숫자배열_생성() {
         GenerateRandom generateRandom = new GenerateRandom();
-        List<Integer> testArr = generateRandom.getRandomNumberList();
+        List<Integer> testArr = generateRandom.getRandomNumberList(3);
         assertThat(3).isEqualTo(testArr.size());
     }
 }
