@@ -5,9 +5,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 플레이어의 입력 기능 클래스
+ * 입력 기능 클래스
  */
-public class PlayerInput {
+public class ConsoleInput {
     public List<Integer> inputNumber() {
         System.out.print("숫자를 입력해주세요 : ");
         String inputStr = Console.readLine();
@@ -37,7 +37,7 @@ public class PlayerInput {
     }
 
     /**
-     * 플레이어의 입력값 체크
+     * 입력값 체크
      *
      * @param str
      * @param strLength 문자열 길이
