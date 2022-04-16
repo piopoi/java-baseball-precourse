@@ -2,6 +2,7 @@ package baseball.domain;
 
 import static org.assertj.core.api.Assertions.*;
 
+import java.util.List;
 import org.junit.jupiter.api.Test;
 
 class GenerateRandomTest {
@@ -9,7 +10,7 @@ class GenerateRandomTest {
     @Test
     void 랜덤_숫자배열_생성() {
         GenerateRandom generateRandom = new GenerateRandom();
-        int[] testArr = generateRandom.getRandomNumberArr();
-        assertThat(3).isEqualTo(testArr.length);
+        List<Integer> testArr = generateRandom.getRandomNumberList();
+        assertThat(3).isEqualTo(testArr.size());
     }
 }
