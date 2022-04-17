@@ -12,21 +12,11 @@ import java.util.List;
 public class BaseballController {
 
     /**
-     * 야구 게임 시작
-     */
-    public void play() {
-        boolean restart = true; //재시작 여부
-        while (restart) { //재시작 여부에 따라 게임을 반복한다.
-            restart = playOneGame(); //게임 종료 후 재시작여부를 반환한다.
-        }
-    }
-
-    /**
-     * 개별 게임 플레이
+     * 야구게임 플레이
      *
      * @return 게임 재시작 여부
      */
-    private boolean playOneGame() {
+    public boolean play() {
         Computer computer = new Computer();
         Player player = new Player();
         List<Integer> computerNumList = computer.getComputerNumber(); //컴퓨터 랜덤 숫자 리스트 생성
@@ -45,7 +35,7 @@ public class BaseballController {
      * @return 재시작 여부
      */
     private boolean restart() {
-        System.out.println("3개의 숫자를 모두 맞히셨습니다! 게임종료");
+        System.out.println("3개의 숫자를 모두 맞히셨습니다! 게임 종료");
         System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
 
         String str = Console.readLine(); //Console 입력
