@@ -17,14 +17,14 @@ public class BaseballController {
      * @return 게임 재시작 여부
      */
     public boolean play() {
-        Computer computer = new Computer();
-        Player player = new Player();
+        Computer computer = new Computer(); //컴퓨터 객체 생성
+        Player player = new Player(); //플레이어 객체 생성
+        Judge judge = new Judge(); //심판 객체 생성
         List<Integer> computerNumList = computer.getComputerNumber(); //컴퓨터 랜덤 숫자 리스트 생성
         boolean threeStrike = false; //3스트라이크 여부
         while (!threeStrike) { //3스트라이크가 나올 때까지 반복
             List<Integer> playerNumList = player.input(); //플레이어의 숫자 입력
-            Judge judge = new Judge(computerNumList, playerNumList); //심판 객체 초기화
-            threeStrike = judge.judgment(); //3스트라이크 여부가 반환된다.
+            threeStrike = judge.judgment(computerNumList, playerNumList); //결과 판정 후 3스트라이크 여부가 반환된다.
         }
         return restart(); //게임 재시작 여부 반환
     }
@@ -51,7 +51,7 @@ public class BaseballController {
      * @param str 입력값
      */
     private void chkAnswer(String str) {
-        if(!str.equals("1") && !str.equals("2")) { //1 = 재시작, 2 = 종료
+        if (!str.equals("1") && !str.equals("2")) { //1 = 재시작, 2 = 종료
             throw new IllegalArgumentException("1 또는 2를 입력해주세요.");
         }
     }
