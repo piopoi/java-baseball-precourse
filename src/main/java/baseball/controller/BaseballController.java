@@ -40,9 +40,7 @@ public class BaseballController {
 
         String str = Console.readLine(); //Console 입력
 
-        if (!chkAnswer(str)) {
-            throw new IllegalArgumentException();
-        }
+        chkAnswer(str); //플레이어 재시작여부 입력값 체크
 
         return "1".equals(str); //true = 재시작, false = 종료
     }
@@ -51,9 +49,10 @@ public class BaseballController {
      * 플레이어 재시작여부 입력값 체크
      *
      * @param str 입력값
-     * @return 정상이면 true, 아니면 false
      */
-    private boolean chkAnswer(String str) {
-        return str.equals("1") || str.equals("2"); //1 = 재시작, 2 = 종료
+    private void chkAnswer(String str) {
+        if(!str.equals("1") && !str.equals("2")) { //1 = 재시작, 2 = 종료
+            throw new IllegalArgumentException("1 또는 2를 입력해주세요.");
+        }
     }
 }

@@ -1,6 +1,5 @@
 package baseball.domain;
 
-import baseball.util.Utils;
 import java.util.List;
 
 public class Judge {
@@ -43,7 +42,7 @@ public class Judge {
     private void countingStrike() {
         for (int i = 0; i < computerNumList.size(); i++) {
             //두 리스트의 같은 index의 value가 같다면 1을 반환하여 count가 올라간다.
-            strikeCount += Utils.equalNumber(computerNumList.get(i), playerNumList.get(i));
+            strikeCount += equalNumber(computerNumList.get(i), playerNumList.get(i));
         }
     }
 
@@ -53,7 +52,7 @@ public class Judge {
     private void countingBall() {
         int containCount = 0; //orgList에 포함된 inputList 숫자 개수
         for (int num : playerNumList) {
-            containCount += Utils.containList(computerNumList, num); //orgList에 num이 있으면 1을 반환하고 없으면 0을 반환한다.
+            containCount += containList(computerNumList, num); //orgList에 num이 있으면 1을 반환하고 없으면 0을 반환한다.
         }
         ballCount = containCount - strikeCount; //위치 상관없이 맞춘 숫자 개수에서 스트라이크를 제외하면 볼 개수가 된다.
     }
@@ -72,5 +71,33 @@ public class Judge {
             System.out.print(strikeCount + "스트라이크");
         }
         System.out.println(); //줄바꿈 처리
+    }
+
+    /**
+     * 두 숫자가 같은지 비교
+     *
+     * @param a 숫자
+     * @param b 숫자
+     * @return 두 숫자가 같다면 1, 다르면 0
+     */
+    private int equalNumber(int a, int b) {
+        if (a == b) {
+            return 1;
+        }
+        return 0;
+    }
+
+    /**
+     * num이 List에 포함되어 있는지 체크
+     *
+     * @param list 체크 대상 List
+     * @param num  체크할 숫자
+     * @return 포함되었으면 1, 아니면 2
+     */
+    private int containList(List<Integer> list, int num) {
+        if (list.contains(num)) {
+            return 1;
+        }
+        return 0;
     }
 }
