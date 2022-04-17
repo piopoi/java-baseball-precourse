@@ -7,8 +7,8 @@ public class Judge {
 
     private final List<Integer> computerNumList; //컴퓨터의 랜덤 숫자 리스트
     private final List<Integer> playerNumList; //플레이어가 입력한 숫자 리스트
-    private int ballCount;
-    private int strikeCount;
+    private int ballCount; //볼 개수
+    private int strikeCount; //스트라이크 개수
 
     /**
      * Constructor
