@@ -1,5 +1,6 @@
 package baseball.util;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Utils {
@@ -43,7 +44,7 @@ public class Utils {
      * num이 List에 포함되어 있는지 체크
      *
      * @param list 체크 대상 List
-     * @param num 체크할 숫자
+     * @param num  체크할 숫자
      * @return 포함되었으면 1, 아니면 2
      */
     public static int containList(List<Integer> list, int num) {
@@ -51,5 +52,22 @@ public class Utils {
             return 1;
         }
         return 0;
+    }
+
+    /**
+     * 문자 배열을 숫자 리스트로 변환
+     *
+     * @param strArr 변환할 문자열
+     * @return 숫자 리스트 형태로 반환
+     */
+    public static List<Integer> StringArrayToIntegerList(String[] strArr) {
+        List<Integer> rtnList = new ArrayList<>();
+
+        for (String str : strArr) {
+            int num = Integer.parseInt(str); //문자를 숫자로 변환한다.
+            rtnList.add(num);
+        }
+
+        return rtnList;
     }
 }
